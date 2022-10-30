@@ -1,0 +1,48 @@
+<html>
+<head>
+    
+    </head>
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script> 
+    var app=angular.module("myapp",[]);
+    app.controller("emi",function($scope){
+        
+        $scope.getrate=function(){
+               return $scope.amount*($scope.intrestrate/100)*$scope.term;
+        }
+
+        $scope.monthly=function(){
+            
+            return  ($scope.amount+$scope.getrate())/($scope.term*12);
+        }
+        
+        
+        
+    });
+                
+	</script>    
+
+<body  ng-app="myapp" >
+    
+    <div ng-controller="emi"  >
+    <table ><tr>
+       <td> Loan amount</td><td> 
+        <input type="number" ng-model="amount"></td></tr>
+        
+       <tr><td> Intrest rate </td><td>
+        <input type="number" ng-model="intrestrate" ></td></tr>
+        
+       <tr><td> Loan term     </td>
+        <td> 
+        <input type="number" ng-model="term">
+        </td></tr>
+
+       </table><hr>
+        
+
+       
+      <hr><P >EMI PER MONTH:  {{ monthly() | currency }}</P><hr><hr>
+   
+    </div>
+    </body>
+</html>

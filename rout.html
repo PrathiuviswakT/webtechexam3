@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="styles.css" rel="stylesheet"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>;
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>;
+    <script>
+
+
+
+        var app = angular.module("myapp",['ngRoute']);
+        app.config(function($routeProvider){
+            $routeProvider
+            .when('/login',
+            {templateUrl:'login.html'})
+            .when('/newuser',
+            {templateUrl:'register.html'})
+        })
+
+    </script>
+</head>
+<body ng-app="myapp">
+    <h1 class="header">Infosys</h1>
+    <div class="sidebar">
+
+
+
+        <a href="#!login">Login</a>
+        <a href="#!newuser">New User?</a>
+
+
+
+    </div>
+    <div class="content"> 
+
+
+        <div ng-view ></div>
+
+
+    </div>
+</body>
+</html>
